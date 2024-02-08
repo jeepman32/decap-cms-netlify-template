@@ -1,5 +1,9 @@
-module.exports = ({
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   pageExtensions: ["tsx"],
+  output: "export",
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push(
       ...[
@@ -16,4 +20,6 @@ module.exports = ({
     );
     return config;
   },
-});
+};
+
+module.exports = nextConfig;
