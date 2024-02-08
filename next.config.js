@@ -3,7 +3,7 @@
  */
 const nextConfig = {
   pageExtensions: ["tsx"],
-  output: "export",
+  // output: "export",
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push(
       ...[
