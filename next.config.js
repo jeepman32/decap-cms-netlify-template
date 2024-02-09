@@ -1,23 +1,36 @@
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
+
 const nextConfig = {
   pageExtensions: ["tsx"],
-  // output: "export",
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.module.rules.push(
-      ...[
-        {
-          test: /\.yml$/,
-          type: "json",
-          use: "yaml-loader",
+  rewrites:
+    process.env.NODE_ENV !== "development"
+      ? undefined
+      : async () => {
+          return [
+            {
+              source: "/admin",
+              destination: "/admin/index.html",
+            },
+            {
+              source: "/config.yml",
+              destination: "/admin/config.yml",
+            },
+          ];
         },
-        {
-          test: /\.svg$/,
-          use: "@svgr/webpack",
-        },
-      ]
-    );
+  webpack: (config) => {
+    config.module.rules = [
+      ...config.module.rules,
+      {
+        test: /\.yml$/,
+        type: "json",
+        use: "yaml-loader",
+      },
+      {
+        test: /\.svg$/,
+        use: "@svgr/webpack",
+      },
+    ];
+
     return config;
   },
 };

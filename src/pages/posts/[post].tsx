@@ -7,8 +7,7 @@ import fs from "fs";
 import yaml from "js-yaml";
 import { parseISO } from "date-fns";
 import PostLayout from "../../components/PostLayout";
-
-import YouTube from "react-youtube";
+import * as Embeds from "react-social-media-embed";
 
 export type Props = {
   title: string;
@@ -20,7 +19,7 @@ export type Props = {
   source: any;
 };
 
-const components = { YouTube };
+const components = { ...Embeds };
 const slugToPostContent = ((postContents) => {
   let hash = {};
   postContents.forEach((it) => (hash[it.slug] = it));

@@ -1,17 +1,49 @@
 ---
 slug: rich-content-with-mdx
 title: Rich Content with MDX
-date: 2020-06-08
+date: 2020-01-01
 author: wutali
 tags:
   - style
   - mdx
 ---
-
 MDX supports to import React component and embed it directly as markdown content.
 
-## YouTube with react-youtube
+## Embeds with react-social-media-embed
 
-<p>
-  <YouTube videoId={"2g811Eo7K8U"} containerClassName={"youtube-container"} />
-</p>
+### Facebook
+
+##### Not working, see [react-social-media-embed issue](https://github.com/justinmahar/react-social-media-embed/issues/58).
+
+<FacebookEmbed width={528} url="https://www.facebook.com/andrewismusic/posts/451971596293956"/>
+
+### Instagram
+
+##### Not working, see [react-social-media-embed issue](https://github.com/justinmahar/react-social-media-embed/issues/58).
+
+<InstagramEmbed width={528} url="https://www.instagram.com/p/CUbHfhpswxt/" />
+
+### LinkedIn
+
+<LinkedInEmbed width={528}
+  url="https://www.linkedin.com/embed/feed/update/urn:li:share:6898694772484112384"
+  postUrl="https://www.linkedin.com/posts/peterdiamandis_5-discoveries-the-james-webb-telescope-will-activity-6898694773406875648-z-D7"
+/>
+
+### Pinterest
+
+##### Not working, due to bug in react-social-media-embed.
+
+<PinterestEmbed width={528} url="https://www.pinterest.com/pin/27162403994160707/" />
+
+### TikTok
+
+<TikTokEmbed width={528} url="https://www.tiktok.com/@epicgardening/video/7055411162212633903" />
+
+### Twitter
+
+<TwitterEmbed width={528} url="https://twitter.com/PixelAndBracket/status/1356633038717923333" />
+
+### YouTube
+
+<YouTubeEmbed width={528} url="https://www.youtube.com/watch?v=HpVOs5imUN0" />
